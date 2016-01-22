@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tangdi.production.mpnotice.dao.MerchantDao">
+		
+	<select id="queryCustId" parameterType="java.util.Map" resultType="java.lang.String">
+		SELECT 
+		        CUST_ID
+		FROM 
+		        MPOMNG_MOBILE_MER_INF
+		WHERE
+			 CUST_LOGIN =  #{mobile}
+	</select>
+
+</mapper>

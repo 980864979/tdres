@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tangdi.production.mpnotice.dao.PushBindDao">
+	<resultMap type="java.util.Map" id="noticeMap">
+		    <result property="custId"               column="CUST_ID" /> 
+		    <result property="mobile"               column="MOBLIE" /> 
+		    <result property="platfrom"               column="PLATFROM" /> 
+		    <result property="platId"               column="PLAT_ID" /> 
+	</resultMap>
+	
+	<select id="selectBindInf" parameterType="java.util.Map" resultMap="noticeMap">
+		SELECT 
+		 		CUST_ID,
+				MOBLIE,
+				PLATFROM,
+				PLAT_ID
+		FROM  MPOMNG_PUSH_BIND_INF WHERE CUST_ID = #{custId} AND PLATFROM=#{platfrom}
+	</select>
+	
+	<insert id="insertEntity" parameterType="java.util.Map">
+		INSERT INTO MPOMNG_PUSH_BIND_INF  (
+		         CUST_ID, 
+		         MOBLIE,
+		         PLATFROM, 
+		         PLAT_ID,
+		         BIND_TIME
+				)
+		VALUES (
+		          #{custId}, 
+		          #{mobile}, 
+		          #{platfrom}, 
+		          #{platId},
+		          #{bindTime}
+		      )
+	</insert>
+</mapper>
